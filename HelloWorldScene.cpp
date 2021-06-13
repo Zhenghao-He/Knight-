@@ -1,5 +1,5 @@
 #include "HelloWorldScene.h"
-#include"security map.h"
+extern TMXTiledMap* myMap;
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
@@ -71,10 +71,6 @@ bool HelloWorld::init()
         // add the label as a child to this layer
         this->addChild(label, 1);
     }
-
-    auto start=Label::createWithTTF("START", "fonts/Marker Felt.ttf", 48);
-    start->enableGlow(Color4B::WHITE);
-   
     auto sprite = Sprite::create("begin.png");
     sprite->setScale(2);
     if (sprite == nullptr)
@@ -89,24 +85,56 @@ bool HelloWorld::init()
         // add the sprite as a child to this layer
         this->addChild(sprite, 0);
     }
+    //////////////
+    //music
+
     //////////////////////////////////////
     //button
+    auto start = Label::createWithTTF("START", "fonts/Marker Felt.ttf", 48);
+    start->enableGlow(Color4B::WHITE);
 
-    auto buttonStart = MenuItemLabel::create(start, CC_CALLBACK_1(HelloWorld::func, this));
-   //auto buttonStart = MenuItemLabel::create(start, CC_CALLBACK_1(security::func, this));
+    auto buttonStart = MenuItemLabel::create(start, CC_CALLBACK_1(HelloWorld::safeMap, this));
+  //auto buttonStart = MenuItemLabel::create(start, CC_CALLBACK_1(security::func, this));
     auto menu2 = Menu::create(buttonStart, NULL);
     this->addChild(menu2);
 
+    //hero
+    
+
     return true;
+}
+void HelloWorld::safeMap(cocos2d::Ref* pSender)
+{
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+   
+    removeAllChildren();
+  
+    auto Hero=hero::create();
+    myMap = TMXTiledMap::create("safeMap2.tmx");
+
+    addChild(myMap);
+    Hero->init();
+    addChild(Hero);
+
 }
 
 void HelloWorld::func(cocos2d::Ref* pSender)
 {
-    auto map = TMXTiledMap::create("safeMap.tmx");
-    addChild(map, 2);
-
+ 
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto map1 = TMXTiledMap::create("win.tmx");
+   
+    map1->setPosition(Vec2(origin.x + visibleSize.width/2 - map1->getContentSize().width / 2,
+                           origin.y + visibleSize.height / 2 - map1->getContentSize().height/2));
+    removeAllChildren();
+    addChild(map1, 2);
+    map1->setTag(1);
 }
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
     Director::getInstance()->end();
 }
+
+

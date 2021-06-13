@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="32" height="22" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" source="prtscSafe.tsx"/>
+ <layer id="1" name="layer1" width="32" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWDBSgz0geP2j9q/6j9o/aP2j9q/6j9g8f+UUB/AAD4zznvAAsAAA==
+  </data>
+ </layer>
+ <layer id="2" name="barrier" width="32" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAUgwEZnjM1+eoFR+0ftH7V/1P5R+0ftH7V/8Ng/kO2PkQoArFPSjQALAAA=
+  </data>
+ </layer>
+</map>
