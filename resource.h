@@ -21,7 +21,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-
+//1234567890
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
 // Used by game.RC
