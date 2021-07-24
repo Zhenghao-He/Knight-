@@ -1,3 +1,3 @@
 #pragma once
-#include"quanju.h"//world
+#include"quanju.h"
 extern TMXTiledMap* myMap;
